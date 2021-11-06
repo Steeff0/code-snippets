@@ -9,6 +9,13 @@ public class ChopTest{
 
     Chopper chopper = new ChopperImpl01();
 
+    static Stream<Arguments> intIntAndIntArrayProvider() {
+        return Stream.of(
+            arguments(-1, 3, new int[]{}),
+            arguments(-1, 3, new int[]{1})
+        );
+    } 
+
     @Test
     void seachNumber() {
         assertEquals(-1, chopper.chop(3, new int[]{}));
