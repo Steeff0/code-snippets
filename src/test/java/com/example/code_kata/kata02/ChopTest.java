@@ -14,7 +14,14 @@ public class ChopTest{
             arguments(-1, 3, new int[]{}),
             arguments(-1, 3, new int[]{1})
         );
-    } 
+    }
+
+    @DisplayName("Chopping gives correct result")
+    @ParameterizedTest(name = "{index} ==> {1} results in {0}")
+    @MethodSource("intIntAndIntArrayProvider")
+    void testChopping(int result, int search, int[] set) {
+        assertEquals(result, chopper.chop(search, set));
+    }
 
     @Test
     void seachNumber() {
