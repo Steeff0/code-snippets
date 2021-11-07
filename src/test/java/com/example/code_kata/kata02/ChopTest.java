@@ -12,8 +12,6 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class ChopTest{
 
-    Chopper solution01 = new ChopperImpl01();
-
     static Stream<Arguments> intIntAndIntArrayProvider() {
         return Stream.of(
             arguments(-1, 3, new int[]{}),
@@ -38,10 +36,19 @@ public class ChopTest{
         );
     }
 
-    @DisplayName("Chopping gives correct result")
+    @DisplayName("Finding the index Solution 01")
     @ParameterizedTest(name = "{index} ==> search {1} in {2} results in {0}")
     @MethodSource("intIntAndIntArrayProvider")
     void testChoppingSolution01(int result, int search, int[] set) {
-        assertEquals(result, solution01.chop(search, set));
+        Chopper chopper = new ChopperImpl01();
+        assertEquals(result, chopper.chop(search, set));
+    }
+
+    @DisplayName("Finding the index Solution 01")
+    @ParameterizedTest(name = "{index} ==> search {1} in {2} results in {0}")
+    @MethodSource("intIntAndIntArrayProvider")
+    void testChoppingSolution02(int result, int search, int[] set) {
+        Chopper chopper = new ChopperImpl02();
+        assertEquals(result, chopper.chop(search, set));
     }
 }
