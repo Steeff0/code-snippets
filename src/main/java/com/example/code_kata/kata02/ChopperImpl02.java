@@ -18,7 +18,7 @@ public class ChopperImpl02 implements Chopper{
         } else if (a[m] < t) {
             return binarySearch((m+1), r, t, a);
         } else {
-            return binarySearch(l, (r-1), t, a);
+            return binarySearch(l, (m-1), t, a);
         }
     }
 }

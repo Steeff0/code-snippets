@@ -44,11 +44,19 @@ public class ChopTest{
         assertEquals(result, chopper.chop(search, set));
     }
 
-    @DisplayName("Finding the index Solution 01")
+    @DisplayName("Finding the index Solution 02")
     @ParameterizedTest(name = "{index} ==> search {1} in {2} results in {0}")
     @MethodSource("intIntAndIntArrayProvider")
     void testChoppingSolution02(int result, int search, int[] set) {
         Chopper chopper = new ChopperImpl02();
+        assertEquals(result, chopper.chop(search, set));
+    }
+
+    @DisplayName("Finding the index Solution 03")
+    @ParameterizedTest(name = "{index} ==> search {1} in {2} results in {0}")
+    @MethodSource("intIntAndIntArrayProvider")
+    void testChoppingSolution03(int result, int search, int[] set) {
+        Chopper chopper = new ChopperImpl03();
         assertEquals(result, chopper.chop(search, set));
     }
 }
