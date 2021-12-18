@@ -1,10 +1,8 @@
 package com.example.adventofcode;
 
+import com.example.utilities.FileReader;
+
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.net.URISyntaxException;
 import java.net.URL;
 
 public class Day01 {
@@ -12,7 +10,7 @@ public class Day01 {
     public int getAmountIncreaseGrouped() {
         int a = 0, b = 0, c = 0, amountIncrease = 0, index = 0, previous = 0;
 
-        try(BufferedReader br = getBufferedReader(numbersfile)) {
+        try(BufferedReader br = FileReader.getBufferedReader(numbersfile)) {
             for (String line; (line = br.readLine()) != null; ) {
                 index++;
                 int current = Integer.parseInt(line.trim());
@@ -57,7 +55,7 @@ public class Day01 {
     public int getAmountIncrease() {
         int current = 0, previous = 0, amountIncrease = 0;
 
-        try(BufferedReader br = getBufferedReader(numbersfile)) {
+        try(BufferedReader br = FileReader.getBufferedReader(numbersfile)) {
             for (String line; (line = br.readLine()) != null; ) {
                 previous = current;
                 current = Integer.parseInt(line.trim());
@@ -73,9 +71,4 @@ public class Day01 {
     }
 
     private URL numbersfile = getClass().getClassLoader().getResource("adventofcode/day01-numbers.dat");
-
-    private BufferedReader getBufferedReader(URL resource) throws FileNotFoundException, URISyntaxException {
-        File weatherFile = new File(resource.toURI());
-        return new BufferedReader(new FileReader(weatherFile));
-    }
 }
