@@ -1,1 +1,1 @@
-# code-kata-snippets
+# Code Snippets
